@@ -43,4 +43,13 @@ body {
   padding-left: 0px;
 }
 
+#user-profile {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#logout-button {
+  margin-right: 0px;
+}
+
 

@@ -20,8 +20,14 @@
   <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
     <a class="navbar-brand" href="/">Little Twitter</a>
-<% unless session[:user].nil? %>
-<a href="/logout"><button type="button" class="btn btn-default navbar-right navbar-btn" id="logout-button">Logout</button></a> <% end %>
+      <% unless session[:user].nil? %>
+      <ul id="menu" class="pull-right">
+        <a href="/feed"><li>Feed</li></a>
+        <a href="/users/<%=session[:user].id%>"><li>Profile</li></a>
+        <a href="/users/<%=session[:user].id%>/followers"><li>Followers</li></a>
+        <a href="/logout"><li>Logout</li></a>
+      </ul>
+<% end %>
     </div>
 </nav>
 
@@ -30,3 +36,6 @@
   </div>
 </body>
 </html>
+
+
+<!-- <button type="button" class="btn btn-default navbar-right navbar-btn" id="logout-button">Logout</button> -->

@@ -1,5 +1,9 @@
 enable :sessions
 
+get '/' do
+  erb :login
+end
+
 post '/users/new' do
   handle = params[:handle]
   email = params[:handle]

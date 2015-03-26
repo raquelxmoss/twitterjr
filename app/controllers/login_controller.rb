@@ -5,26 +5,36 @@ get '/' do
 end
 
 post '/users/new' do
-  handle = params[:handle]
-  email = params[:handle]
-  fullname = params[:full_name]
-  password = params[:password]
-  gravatar = params[:gravatar]
+  options = {
+    :handle => params[:handle],
+    :email => params[:email],
+    :full_name => params[:full_name],
+    :password => params[:password],
+    :gravatar => params[:gravatar]
+}
 
-  User.create(handle: handle, email: email, full_name: fullname, password: password, gravatar: gravatar)
-  redirect '/users/:id/feed'
+  User.create(options)
+  redirect '/users'
 end
 
 post '/login' do
   handle = params[:handle]
-  password = params[:handle]
+  password = params[:password]
 
   if user = User.authenticate(handle, password)
     session[:user] = user
-    session[:error] = nil #used to raise an error if incorrect password
-    redirect '/users/:id/feed'
+    session[:error] = nil
+    redirect "/feed"
   else
     session[:error] = "Invalid password, please try again"
-    redirect '/login'
+    redirect '/'
   end
 end
+
+get '/logout' do
+  session.clear
+  redirect '/'
+end
+
+
+

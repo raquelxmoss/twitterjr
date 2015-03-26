@@ -1,25 +1,25 @@
-require_relative '../spec_helper'
+# require_relative '../spec_helper'
 
-describe User do
-  before do
-    @follower = User.create()
-    @followee = User.create()
+# describe User do
+#   before do
+#     @follower = User.create()
+#     @followee = User.create()
 
-    @follower.followees << @followee
+#     @follower.followees << @followee
 
-  end
+#   end
 
-  it 'has many followers' do
+#   it 'has many followers' do
 
-    expect(@followee.reload.followers).to include (@follower)
+#     expect(@followee.reload.followers).to include (@follower)
 
-  end
+#   end
 
-  it 'has many followees' do
+#   it 'has many followees' do
 
-    expect(@follower.reload.followees).to include (@followee)
+#     expect(@follower.reload.followees).to include (@followee)
 
-  end
+#   end
 
 
-end
+# end

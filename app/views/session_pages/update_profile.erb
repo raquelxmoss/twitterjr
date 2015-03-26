@@ -1,10 +1,10 @@
-<div>
+<div class="col-sm-12">
   <form method="post" action="update_profile" name="user_profile">
-    <input type="text" name="handle" value="<%= @user.handle %>" >
-    <input type="text" name="full_name" value="<%= @user.full_name %>" >
-    <input type="text" name="bio" value="<%= @user.bio %>" >
-    <input type="text" name="gravatar" value="<%= @user.gravatar %>" >
-    <input type="submit" name="submit" value="Update profile" >
+    <input type="text" name="handle" value="<%= @user.handle %>" class="form-control">
+    <input type="text" name="full_name" value="<%= @user.full_name %>" class="form-control">
+    <input type="text" name="bio" value="<%= @user.bio %>" class="form-control">
+    <input type="text" name="gravatar" value="<%= @user.gravatar %>" class="form-control">
+    <input type="submit" name="submit" value="Update profile" class="btn btn-primary">
   </form>
 </div>
 

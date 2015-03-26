@@ -6,16 +6,6 @@ get '/users' do
 end
 
 
-get '/my_feed' do
-  unless session[:user].nil?
-    id = session[:user].id
-    @user = User.find(id)
-    erb :'users/my_feed'
-  else
-    redirect '/'
-  end
-end
-
 get '/users/:id' do
   @user = User.find(params[:id])
 

@@ -16,6 +16,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'sanitize'
+
 gem 'scrypt'
 group :test do
   gem 'shoulda-matchers'
@@ -27,4 +29,5 @@ end
 group :test, :development do
   gem 'factory_girl'
   gem 'faker'
+  gem 'dawnscanner', :require=>false
 end

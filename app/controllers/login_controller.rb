@@ -22,4 +22,5 @@ post '/login' do
   else
     session[:error] = "Invalid password, please try again"
     redirect '/login'
+  end
 end

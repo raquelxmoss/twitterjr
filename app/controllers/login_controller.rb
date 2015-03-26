@@ -26,7 +26,7 @@ post '/login' do
     session[:error] = nil
     redirect "/feed"
   else
-    session[:error] = "Invalid password, please try again"
+    session[:error] = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
     redirect '/'
   end
 end

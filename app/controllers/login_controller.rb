@@ -8,13 +8,12 @@ post '/users/new' do
   options = {
     :handle => params[:email],
     :email => params[:email],
-    :fullname => params[:full_name],
+    :full_name => params[:full_name],
     :password => params[:password],
     :gravatar => params[:gravatar]
 }
 
   User.create(options)
-  # redirect '/users/:id/feed'
   redirect '/users'
 end
 

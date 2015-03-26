@@ -6,7 +6,7 @@ end
 
 post '/users/new' do
   options = {
-    :handle => params[:email],
+    :handle => params[:handle],
     :email => params[:email],
     :full_name => params[:full_name],
     :password => params[:password],
@@ -19,7 +19,7 @@ end
 
 post '/login' do
   handle = params[:handle]
-  password = params[:handle]
+  password = params[:password]
 
   if user = User.authenticate(handle, password)
     session[:user] = user

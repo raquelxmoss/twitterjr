@@ -17,6 +17,12 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include Capybara::DSL
 end
+#CHROME AS A BROWSER
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :firefox)
+end
+Capybara.current_driver = :selenium_chrome
+
 
 Capybara.app = Sinatra::Application
 

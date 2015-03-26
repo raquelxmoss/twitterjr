@@ -17,6 +17,17 @@ Retweet.delete_all
   User.create(options)
 
 end
+# my personnal profile
+  options = {
+    handle: 'alexb52',
+    email: 'barretalexandre@hotmail.com',
+    full_name: 'Alexandre Barret',
+    bio: 'Nothing much today',
+    password: 'cookie',
+    gravatar: Faker::Avatar.image
+  }
+  User.create(options)
+
 
 # #seed Tweets
 20.times do

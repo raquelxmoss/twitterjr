@@ -1,10 +1,14 @@
 <h1>My Followers</h1>
 
-<ul>
-
 <% @followers.each do |follower| %>
-  <li>
-    <%= follower.handle %>
-  </li>
+<div class="col-md-3" id="follower-list">
+  <div class="col-lg-12" id="follower">
+    <img src="<%= follower.gravatar %>" class="img img-responsive img-circle" />
+      <h3><a href="/users/<%= follower.id %>">@<%= follower.handle %></a></h3>
+        <p><%= follower.email %></p>
+        <p><%= follower.bio %></p>
+        <p id="view-user"><button class="btn btn-primary btn-lg">See Tweets</button></p>
+  </div>
+</div>
 <% end %>
 </ul>

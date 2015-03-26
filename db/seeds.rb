@@ -12,7 +12,7 @@ Retweet.delete_all
     full_name: Faker::Name.name,
     bio: Faker::Lorem.sentence,
     password: Faker::Internet.password,
-    gravatar: Faker::Internet.url
+    gravatar: Faker::Avatar.image
   }
   User.create(options)
 

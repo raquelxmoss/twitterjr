@@ -5,7 +5,7 @@ get '/users' do
   erb :'/users/index'
 end
 
-get '/users/:id/my_feed' do
+get '/my_feed' do
   id = params[:id]
   @me = User.find(id)
   unless session[:user].nil?

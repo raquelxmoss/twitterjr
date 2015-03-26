@@ -7,7 +7,7 @@ get '/session_pages/my_feed' do
     session[:error] = nil
     erb :'session_pages/my_feed'
   else
-    session[:error] = "You are not logged in !"
+    session[:error] = "You are not logged in!"
     redirect '/'
   end
 end
@@ -18,7 +18,7 @@ get '/session_pages/followers' do
     session[:error] = nil
     erb :'session_pages/followers'
   else
-    session[:error] = "You are not logged in !"
+    session[:error] = "You are not logged in!"
     redirect '/'
   end
 end

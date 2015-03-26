@@ -1,0 +1,10 @@
+<h1>My Followers</h1>
+
+<ul>
+
+<% @followers.each do |follower| %>
+  <li>
+    <%= follower.handle %>
+  </li>
+<% end %>
+</ul>

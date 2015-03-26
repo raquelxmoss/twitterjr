@@ -11,3 +11,7 @@ end
 20.times do
   Tweet.create(status: Faker::Lorem.sentences)
 end
+
+
+
+

@@ -1,4 +1,5 @@
 enable :sessions
+require 'sanitize'
 
 get '/' do
   erb :login
@@ -6,11 +7,11 @@ end
 
 post '/users/new' do
   options = {
-    :handle => params[:handle],
-    :email => params[:email],
-    :full_name => params[:full_name],
-    :password => params[:password],
-    :gravatar => params[:gravatar]
+    :handle => Sanitize.fragment(params[:handle]),
+    :email => Sanitize.fragment(params[:email]),
+    :full_name => Sanitize.fragment(params[:full_name]),
+    :password => Sanitize.fragment(params[:password]),
+    :gravatar => Sanitize.fragment(params[:gravatar])
 }
 
   User.create(options)
@@ -18,8 +19,8 @@ post '/users/new' do
 end
 
 post '/login' do
-  handle = params[:handle]
-  password = params[:password]
+  handle = Sanitize.fragment(params[:handle])
+  password = Sanitize.fragment(params[:password])
 
   if user = User.authenticate(handle, password)
     session[:user] = user

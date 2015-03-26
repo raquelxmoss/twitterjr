@@ -4,7 +4,10 @@ User.delete_all
 Tweet.delete_all
 Retweet.delete_all
 
-10.times do
+#Create specific profiles for testing
+require_relative 'seed_my_profile'
+#create ten uers
+20.times do
 
   options = {
     handle: Faker::Lorem.word,
@@ -15,26 +18,15 @@ Retweet.delete_all
     gravatar: Faker::Avatar.image
   }
   User.create(options)
-
 end
+require_relative 'seed_followers'
 
 # #seed Tweets
 20.times do
   Tweet.create( status: Faker::Lorem.sentences.join(' '), user_id:rand(1..10) )
 end
 
-#seed Retweets
-# 20.times do
-#   @my_tweets = Tweet.all
-#   @my_tweets.each do |my_tweet|
-#     if my_tweet.id.even?
-#       # get a user.id
-#       user_id = User.find( rand( (User.count+1)..((User.count)*2) ) ).id
-#       #puts user_id
-#       Retweet.create( user_id: user_id, tweet_id: my_tweet.id)
-#     end
-#   end
-# end
+
 
 puts 'Seed complete !!.'
 

@@ -11,12 +11,17 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'shoulda-matchers'
 require 'rack/test'
 require 'capybara'
-require 'capybara/rspec'
+require 'capybara/dsl'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.include Capybara::DSL
 end
 
-def app
-  Sinatra::Application
-end
+Capybara.app = Sinatra::Application
+
+# def app
+#   Sinatra::Application
+# end
+
+

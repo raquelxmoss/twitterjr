@@ -1,0 +1,14 @@
+<h1>Followers</h1>
+
+
+
+<% @followers.each do |follower| %>
+<li><%= follower.handle %></li>
+
+
+<% follower.tweets.each do |tweet| %>
+  <li>
+    tweet: <%= tweet.status %>
+  </li>
+<% end %>
+<% end %>

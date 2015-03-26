@@ -5,6 +5,9 @@ get '/users' do
   erb :'/users/index'
 end
 
+get '/users/:id/feed' do
+
+end
 
 
 

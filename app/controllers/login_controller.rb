@@ -25,6 +25,9 @@ post '/login' do
     redirect '/users/:id/feed'
   else
     session[:error] = "Invalid password, please try again"
-    redirect '/login'
+    redirect '/'
   end
 end
+
+
+

@@ -1,4 +1,4 @@
-require 'scrypt'
+# require 'scrypt'
 
 class User < ActiveRecord::Base
   # Remember to create a migration!

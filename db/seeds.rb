@@ -4,14 +4,13 @@ User.delete_all
 Tweet.delete_all
 Retweet.delete_all
 
-# Seed Users
 10.times do
-  User.create( email: Faker::Internet.email )
+  User.create( email: Faker::Internet.email, handle:Faker::Internet.user_name, gravatar:Faker::Avatar.image)
 end
 
-#seed Tweets
+# #seed Tweets
 20.times do
-  Tweet.create( status: Faker::Lorem.sentences.join(' ') )
+  Tweet.create( status: Faker::Lorem.sentences.join(' '), user_id:rand(1..10) )
 end
 
 #seed Retweets

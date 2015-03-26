@@ -2,9 +2,11 @@
 <div id="tweet-list">
 <%  @tweets.each do |tweet| %>
 <div class="row" id="tweet">
-<div class="col-sm-1"><img src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10933883_833760860015960_7797655273032754260_n.jpg?oh=d79abf782a693145d9eae93ca1ce386e&oe=55B86727&__gda__=1437622175_5f94aee1e7d021e5b37d1c1031f8b0d8" class="img img-responsive img-circle"></div>
+<div class="col-sm-1"><img src="<%=tweet.user.gravatar%>" class="img img-responsive img-circle">
+</div>
     <div class="col-sm-11"><%= tweet.status %><br /><br />
-    @handle | <%= tweet.created_at %></div>
+    @<%=tweet.user.handle %> | <%= tweet.created_at %>
+  </div>
 </div>
 <% end%>
 

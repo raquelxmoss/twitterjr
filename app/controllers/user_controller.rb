@@ -5,6 +5,7 @@ get '/users' do
   erb :'/users/index'
 end
 
+
 get '/my_feed' do
   unless session[:user].nil?
     id = session[:user].id
@@ -14,6 +15,13 @@ get '/my_feed' do
     redirect '/'
   end
 end
+
+get '/users/:id' do
+  @user = User.find(params[:id])
+
+  erb :'/users/profile'
+end
+
 
 
 

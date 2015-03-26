@@ -1,0 +1,10 @@
+<div>
+  <form method="post" action="update_profile" name="user_profile">
+    <input type="text" name="handle" value="<%= @user.handle %>" >
+    <input type="text" name="full_name" value="<%= @user.full_name %>" >
+    <input type="text" name="bio" value="<%= @user.bio %>" >
+    <input type="text" name="gravatar" value="<%= @user.gravatar %>" >
+    <input type="submit" name="submit" value="Update profile" >
+  </form>
+</div>
+

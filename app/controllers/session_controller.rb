@@ -23,3 +23,23 @@ get '/followers' do
     redirect '/'
   end
 end
+
+get '/update_profile' do
+  unless session[:user].nil?
+    @user = session[:user]
+    session[:error] = nil
+    erb :'session_pages/update_profile'
+  else
+    session[:error] = "You are not logged in!"
+    redirect '/'
+  end
+end
+
+#Need to implement post unpdate with the redirection
+# post '/update_profile' do
+
+#     @user = session[:user]
+#     session[:error] = nil
+#     redirect "/profile/#{session[:user].id}"
+
+# end

@@ -23,7 +23,7 @@ require_relative 'seed_followers'
 
 # #seed Tweets
 20.times do
-  Tweet.create( status: Faker::Lorem.sentences.join(' '), user_id:rand(1..10) )
+  Tweet.create( status: Faker::Lorem.sentences.join(' '), user: User.all.sample )
 end
 
 

@@ -22,6 +22,13 @@ post '/login' do
   handle = Sanitize.fragment(params[:handle])
   password = Sanitize.fragment(params[:password])
 
+  if handle != params[:handle] || password != params[:password]
+    session[:phill] = "<div class='alert alert-danger error'>YOU SHALL NOT PASS! (Phill)</div>"
+    redirect '/'
+  else
+    session[:phill] = nil
+  end
+
   if user = User.authenticate(handle, password)
     session[:user] = user
     session[:error] = nil

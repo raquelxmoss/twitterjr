@@ -18,7 +18,11 @@
 </head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-    <a class="navbar-brand" href="#">Little Twitter</a>
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">Little Twitter</a>
+<% unless session[:user].nil? %>
+<a href="/logout"><button type="button" class="btn btn-default navbar-right navbar-btn" id="logout-button">Logout</button></a> <% end %>
+    </div>
 </nav>
 
   <div class="container" id="main">

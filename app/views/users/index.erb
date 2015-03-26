@@ -1,11 +1,17 @@
-<h1>Users</h1>
-<ul>
+<h1>Tweeters</h1>
+
 <%  @users.each do |user| %>
 
-<li>
-  <p><%= user.id %> --- <%= user.email %> --- <%= user.handle %> </p>
-  <p><%= user.password %></p>
-</li>
-
+<div class="col-md-3" id="user-list">
+  <div class="col-lg-12" id="user">
+  <img src="<%= user.gravatar %>" class="img img-responsive img-circle" />
+  <h3><a href="/users/<%= user.id %>">@<%= user.handle %></a></h3>
+  <p><%= user.email %></p>
+  <p>Biography</p>
+  <p id="follow-button"><button class="btn btn-primary btn-lg">Follow</button></p>
+</div>
+</div>
 <% end%>
+
 </ul>
+

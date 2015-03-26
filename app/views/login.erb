@@ -1,10 +1,11 @@
-<%= session[:error] unless session[:error].nil? %>
+<%= session[:error] if session[:error] %>
+<%= session[:phill] if session[:phill] %>
 
 
 <div class="col-md-6" id="sign-up">
 <h2>Sign Up</h2>
     <div class="form-group">
-    <form action="/users/new" method="POST">
+    <form action="/users/new" method="POST" id='signup-form'>
 
             <p><input type="text" name="fullname" class="form-control" placeholder="Full name"></p><br />
 

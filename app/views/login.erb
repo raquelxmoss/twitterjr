@@ -1,4 +1,5 @@
-<%= session[:error] unless session[:error].nil? %>
+<%= session[:error] if session[:error] %>
+<%= session[:phill] if session[:phill] %>
 
 
 <div class="col-md-6" id="sign-up">

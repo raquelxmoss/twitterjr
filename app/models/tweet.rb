@@ -1,4 +1,6 @@
 class Tweet < ActiveRecord::Base
   # Remember to create a migration!
-  has_one :user
+  belongs_to :user
+
+  has_many :users, through: :retweets
 end

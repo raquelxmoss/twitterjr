@@ -1,6 +1,6 @@
 enable :sessions
 
-get '/session_pages/my_feed' do
+get '/feed' do
   unless session[:user].nil?
     id = session[:user].id
     @user = User.find(id)
@@ -12,7 +12,7 @@ get '/session_pages/my_feed' do
   end
 end
 
-get '/session_pages/followers' do
+get '/followers' do
   unless session[:user].nil?
     @followers = User.find(session[:user].id).followers
     session[:error] = nil

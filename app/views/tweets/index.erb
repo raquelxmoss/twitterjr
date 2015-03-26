@@ -2,6 +2,7 @@
 <div id="tweet-list">
 <%  @tweets.each do |tweet| %>
 <div class="row" id="tweet">
+
 <div class="col-sm-1"><img src="<%=tweet.user.gravatar%>" class="img img-responsive img-circle">
 </div>
     <div class="col-sm-11"><%= tweet.status %><br /><br />

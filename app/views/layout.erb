@@ -20,9 +20,8 @@
   <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
     <a class="navbar-brand" href="/">Little Twitter</a>
-    <% if @logged_in %>
-      <button type="button" class="btn btn-default navbar-right navbar-btn" id="logout-button">Logout</button>
-      <% end %>
+<% unless session[:user].nil? %>
+<a href="/logout"><button type="button" class="btn btn-default navbar-right navbar-btn" id="logout-button">Logout</button></a> <% end %>
     </div>
 </nav>
 

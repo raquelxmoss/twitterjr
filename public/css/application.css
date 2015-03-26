@@ -6,6 +6,28 @@ body {
   padding-top: 50px;
 }
 
+.navbar-inverse .navbar-brand {
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+#menu {
+  list-style: none;
+}
+
+#menu li {
+  display: inline-block;
+  margin: 10px;
+  color: #ccc;
+  text-transform: uppercase;
+  padding-top: 5px;
+}
+
+#menu li::before {
+  content: "|   ";
+  padding-right: 10px;
+}
+
 .container {
   margin-bottom: 30px;
 }

@@ -22,3 +22,14 @@ get '/followers' do
     redirect '/'
   end
 end
+
+get '/update_profile' do
+  unless session[:user].nil?
+    @user = session[:user]
+    session[:error] = nil
+    erb :'session_pages/update_profile'
+  else
+    session[:error] = "You are not logged in!"
+    redirect '/'
+  end
+end

@@ -23,7 +23,7 @@ post '/login' do
 
   if user = User.authenticate(handle, password)
     session[:user] = user
-    session[:error] = nil #used to raise an error if incorrect password
+    session[:error] = nil
     redirect "/session_pages/my_feed"
   else
     session[:error] = "Invalid password, please try again"

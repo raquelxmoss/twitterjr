@@ -29,3 +29,10 @@ end
 
 puts 'Seed complete !!.'
 
+  options = {
+    :handle => 'barretalexandre@hotmail.com',
+    :email => 'barretalexandre@hotmail.com',
+    :full_name => 'Alexandre Barret',
+    :password => 'cookie',
+    :gravatar => 'gravatar'
+}

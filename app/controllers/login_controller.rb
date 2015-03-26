@@ -5,14 +5,17 @@ get '/' do
 end
 
 post '/users/new' do
-  handle = params[:handle]
-  email = params[:handle]
-  fullname = params[:full_name]
-  password = params[:password]
-  gravatar = params[:gravatar]
+  options = {
+    :handle => params[:email],
+    :email => params[:email],
+    :fullname => params[:full_name],
+    :password => params[:password],
+    :gravatar => params[:gravatar]
+}
 
-  User.create(handle: handle, email: email, full_name: fullname, password: password, gravatar: gravatar)
-  redirect '/users/:id/feed'
+  User.create(options)
+  # redirect '/users/:id/feed'
+  redirect '/users'
 end
 
 post '/login' do

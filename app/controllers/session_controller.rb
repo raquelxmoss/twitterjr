@@ -34,3 +34,12 @@ get '/update_profile' do
     redirect '/'
   end
 end
+
+#Need to implement post unpdate with the redirection
+# post '/update_profile' do
+
+#     @user = session[:user]
+#     session[:error] = nil
+#     redirect "/profile/#{session[:user].id}"
+
+# end

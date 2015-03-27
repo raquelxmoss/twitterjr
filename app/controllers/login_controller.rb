@@ -18,7 +18,7 @@ post '/users/new' do
   if user = User.authenticate(options[:handle], options[:password])
     session[:user] = user
     session[:error] = nil
-    redirect "/users"
+    redirect "/follow"
   else
    session[:error] = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
     redirect "/"

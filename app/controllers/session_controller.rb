@@ -35,6 +35,48 @@ get '/update_profile' do
   end
 end
 
+get '/follow/:user_id' do
+  unless User.find(params[:user_id]).nil?
+    unless session[:user].nil?
+      user_to_follow = User.find(params[:user_id])
+      user = User.find(session[:user].id)
+      user.followers << user_to_follow
+      redirect '/follow'
+    else
+      session[:error] = "Something went wrong"
+      redirect '/follow'
+    end
+  end
+end
+
+get '/unfollow/:user_id' do
+  unless User.find(params[:user_id]).nil?
+    unless session[:user].nil?
+      user_to_unfollow = User.find(params[:user_id])
+      user = User.find(session[:user].id)
+      user.followers.delete user_to_unfollow
+      redirect '/follow'
+    else
+      session[:error] = "Something went wrong"
+      redirect '/follow'
+    end
+  end
+end
+
+get '/follow' do
+    unless session[:user].nil?
+      user = User.find(session[:user].id)
+      @followers = user.followers
+      @users = User.where.not(id: session[:user].id)
+      erb :'session_pages/follow_people'
+    else
+      session[:error] = "Something went wrong"
+      redirect '/'
+    end
+end
+
+
+
 #Need to implement post unpdate with the redirection
 # post '/update_profile' do
 

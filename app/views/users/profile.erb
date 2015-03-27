@@ -3,7 +3,9 @@
   <h1><a href="/users/<%=@user.id %>">@<%= @user.handle %></a></h1>
   <h3><%= @user.full_name %></h3>
   <p><%= @user.bio %></p>
-  <a class="btn btn-lg btn-primary" href="/update_profile">UPDATE PROFILE</a>
+      <% if session[:user].id == @user.id %>
+    <a class="btn btn-lg btn-primary" href="/update_profile">UPDATE PROFILE</a>
+      <% end %>
 </div>
 
 <div class="col-sm-9">

@@ -105,10 +105,9 @@ end
 
 
 #Need to implement post unpdate with the redirection
-# post '/update_profile' do
+post '/update_profile' do
+    @user = session[:user]
+    session[:error] = nil
+    redirect "/users/params[:user_id]"
 
-#     @user = session[:user]
-#     session[:error] = nil
-#     redirect "/profile/#{session[:user].id}"
-
-# end
+end

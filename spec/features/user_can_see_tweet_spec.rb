@@ -15,7 +15,7 @@ describe "the sign-up process", :type => :feature do
       fill_in 'password', :with => 'password'
     end
     click_button 'Sign up'
-    expect(page).to have_content ''
+    expect(page).to have_content 'Tweeters'
   end
 end
 
@@ -33,7 +33,7 @@ describe "the login process", :type => :feature do
       fill_in 'password', :with => 'password'
     end
     click_button 'Login'
-    expect(page).to have_content ''
+    expect(page).to have_content 'My feed'
   end
 end
 

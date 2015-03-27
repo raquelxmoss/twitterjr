@@ -37,6 +37,7 @@ post '/login' do
     session[:error] = "Invalid password, please try again"
     redirect '/'
   end
+
 end
 
 get '/logout' do

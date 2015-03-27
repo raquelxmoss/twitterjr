@@ -2,7 +2,11 @@ enable :sessions
 require 'sanitize'
 
 get '/' do
-  erb :login
+  if session[:user]
+    redirect '/feed'
+  else
+    erb :login
+  end
 end
 
 post '/users/new' do

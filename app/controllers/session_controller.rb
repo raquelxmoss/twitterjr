@@ -75,6 +75,19 @@ get '/follow' do
     end
 end
 
+post '/tweet/create' do
+    status = params[:status]
+    unless session[:user].nil?
+      user = User.find(session[:user].id)
+      user.tweets << Tweet.create(status: status)
+      redirect '/feed'
+    else
+      session[:error] = "Something went wrong"
+      redirect '/feed'
+    end
+end
+
+
 
 
 #Need to implement post unpdate with the redirection

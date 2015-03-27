@@ -11,12 +11,24 @@
 <div class="col-sm-9">
   <h1>Tweets by @<%= @user.handle %></h1>
   <% @user.tweets.each do |tweet| %>
-  <div class="col-sm-12" id="tweet">
-  <div class="col-md-2 hidden-sm hidden-xs"><img src="<%=@user.gravatar%>" class="img img-responsive img-circle">
+      <% if tweet.retweet_of.nil? %>
+      <!-- If it is a normal tweet, do this -->
+      <div class="col-sm-12" id="tweet">
+      <div class="col-md-2 hidden-sm hidden-xs"><img src="<%=@user.gravatar%>" class="img img-responsive img-circle">
+        </div>
+        <div class="col-sm-10"><%= tweet.status %><br /><br />
+        @<%=@user.handle %> | <%= tweet.created_at %><br /><br />
+      </div>
     </div>
-    <div class="col-sm-10"><%= tweet.status %><br /><br />
-    @<%=@user.handle %> | <%= tweet.created_at %><br /><br />
+  <% else %>
+  <!-- end if it is a normal tweet -->
+    <div class="col-sm-12" id="tweet">
+      <div class="col-sm-1"><img src="<%=tweet.parent_tweet.user.gravatar%>" class="img img-responsive img-circle hidden-xs">
+      </div>
+      <div class="col-sm-11"><%= tweet.status %><br /><br />
+      <a href="/users/<%=tweet.user.id%>">@<%=tweet.parent_tweet.user.handle %></a> | <%= tweet.created_at %> | Retweeted by <%= tweet.user.handle %></a>
+    </div>
   </div>
-</div>
+  <% end %>
   <% end %>
 </div>

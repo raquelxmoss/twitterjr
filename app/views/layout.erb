@@ -23,15 +23,17 @@
     <div class="container-fluid">
       <div class="navbar-header">
     <a class="navbar-brand" href="/">Little Twitter</a>
+     <% unless session[:user].nil? %>
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-    </div>
+       </button>
+       <% end %>
+      </div>
           <div class="collapse navbar-collapse" id="menu">
-      <% unless session[:user].nil? %>
+ <% unless session[:user].nil? %>
       <ul id="menu" class="pull-right">
         <a href="/feed"><li>Feed</li></a>
         <a href="/users/<%=session[:user].id%>"><li>Profile</li></a>

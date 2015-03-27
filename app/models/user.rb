@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
 
 
-  before_save do
+  before_create do
     encrypt_password
   end
 

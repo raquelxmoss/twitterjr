@@ -9,7 +9,7 @@
       <h3><a href="/users/<%= follower.id %>">@<%= follower.handle %></a></h3>
         <p><%= follower.email %></p>
         <p><%= follower.bio %></p>
-        <p id="view-user"><button class="btn btn-primary btn-lg">See Tweets</button></p>
+        <p id="view-user"><a class="btn btn-primary btn-lg" href="/users/<%=follower.id%>">See Tweets</a></p>
   </div>
 </div>
 <% end %>

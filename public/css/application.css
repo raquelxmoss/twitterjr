@@ -4,6 +4,7 @@ body {
   background-attachment: fixed;
   font-family: Open sans, Helvetica, sans-serif;
   padding-top: 50px;
+  word-wrap: break-word;
 }
 
 .error {
@@ -76,6 +77,10 @@ body {
 
 #logout-button {
   margin-right: 0px;
+}
+
+#follow-button {
+  margin-bottom: 20px;
 }
 
 .add-tweet {

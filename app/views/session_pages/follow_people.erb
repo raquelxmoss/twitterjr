@@ -10,9 +10,9 @@
   <p>Biography</p>
 
   <% if  @followers.include?(user) %>
-    <a href=<%="unfollow/#{user.id}"%>  id="follow-button"><button class="btn btn-primary btn-lg">Unfollow</button></a>
+    <a href=<%="unfollow/#{user.id}"%> ><button class="btn btn-primary btn-lg" id="follow-button">Unfollow</button></a>
   <% else %>
-    <a href=<%="follow/#{user.id}"%>  id="follow-button"><button class="btn btn-primary btn-lg">Follow</button></a>
+    <a href=<%="follow/#{user.id}"%> ><button class="btn btn-primary btn-lg" id="follow-button">Follow</button></a>
   <% end %>
 
 </div>

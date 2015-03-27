@@ -95,8 +95,11 @@ post '/update_profile' do
      bio: params[:bio],
      gravatar: params[:gravatar]
     }
+    id = session[:user]
     session[:user].update(options)
-    redirect '/update_profile'
+    session.clear
+    session[:user] = User.find(id)
+    redirect "users/#{session[:user].id}"
   else
     session[:error] = "Something went wrong"
     redirect '/'
@@ -118,9 +121,3 @@ get '/retweet/:id/create' do
     end
 end
 
-
-    @user = session[:user]
-    session[:error] = nil
-    redirect "/profile/#{session[:user].id}"
-
-end

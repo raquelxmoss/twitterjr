@@ -10,6 +10,14 @@
 
 <div class="col-sm-9">
   <h1>Tweets by @<%= @user.handle %></h1>
+    <% if session[:user].id == @user.id %>
+      <div class="col-sm-12 add-tweet">
+        <form action="/tweet/create" method="post">
+          <input type="text" name="status" placeholder="What's going on <%= session[:user].handle %>?" class="form-control"><br />
+          <input type="submit" name="submit" value="Tweet" class="btn btn-primary">
+        </form>
+     </div>
+  <% end %>
   <% @user.tweets.each do |tweet| %>
       <% if tweet.retweet_of.nil? %>
       <!-- If it is a normal tweet, do this -->

@@ -3,7 +3,7 @@
   <form method="post" action="update_profile" name="user_profile" style="margin-bottom: 20px">
     <h4>Handle:</h4> <input type="text" name="handle" value="<%= @user.handle %>" class="form-control">
     <h4>Full name:</h4> <input type="text" name="full_name" value="<%= @user.full_name %>" class="form-control">
-    <h4>Biography:</h4> <textarea name="bio" value="<%= @user.bio %>" class="form-control" rows="7"></textarea>
+    <h4>Biography:</h4> <textarea name="bio" value="<%= @user.bio %>" class="form-control" rows="7"><%= @user.bio %></textarea>
     <h4>Avatar link:</h4> <input type="text" name="gravatar" value="<%= @user.gravatar %>" class="form-control"><br /><br />
     <input type="submit" name="submit" value="Update profile" class="btn btn-primary">
   </form>

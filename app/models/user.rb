@@ -1,6 +1,7 @@
 require 'scrypt'
 
 class User < ActiveRecord::Base
+
   has_many :followee_follows, class_name: 'Follow', foreign_key: 'followee_id'
   has_many :followers, class_name: 'User', through: :followee_follows
 

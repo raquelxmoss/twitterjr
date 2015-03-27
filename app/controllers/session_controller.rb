@@ -87,6 +87,25 @@ post '/tweet/create' do
     end
 end
 
+post '/update_profile' do
+  unless session[:user].nil?
+    options = {
+     handle: params[:handle],
+     full_name: params[:full_name],
+     bio: params[:bio],
+     gravatar: params[:gravatar]
+    }
+    id = session[:user]
+    session[:user].update(options)
+    session.clear
+    session[:user] = User.find(id)
+    redirect "users/#{session[:user].id}"
+  else
+    session[:error] = "Something went wrong"
+    redirect '/'
+  end
+end
+
 get '/retweet/:id/create' do
     if Tweet.find(params[:id])
       unless session[:user].nil?
@@ -103,11 +122,3 @@ get '/retweet/:id/create' do
 end
 
 
-
-#Need to implement post unpdate with the redirection
-post '/update_profile' do
-    @user = session[:user]
-    session[:error] = nil
-    redirect "/users/params[:user_id]"
-
-end

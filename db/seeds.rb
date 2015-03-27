@@ -2,7 +2,7 @@ require 'faker'
 
 User.delete_all
 Tweet.delete_all
-Retweet.delete_all
+
 
 #Create specific profiles for testing
 require_relative 'seed_my_profile'

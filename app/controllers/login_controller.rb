@@ -2,7 +2,11 @@ enable :sessions
 require 'sanitize'
 
 get '/' do
-  erb :login
+  if session[:user]
+    redirect '/feed'
+  else
+    erb :login
+  end
 end
 
 post '/users/new' do
@@ -17,11 +21,10 @@ post '/users/new' do
   User.create(options)
   if user = User.authenticate(options[:handle], options[:password])
     session[:user] = user
-    session[:error] = nil
     redirect "/follow"
   else
-   session[:error] = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
-    redirect "/"
+   @error = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
+    erb :login
   end
 end
 
@@ -30,20 +33,18 @@ post '/login' do
   password = Sanitize.fragment(params[:password])
 
   if handle != params[:handle] || password != params[:password]
-    session[:phill] = "<div class='alert alert-danger error'>YOU SHALL NOT PASS! (Phill)</div>"
-    redirect '/'
-  else
-    session[:phill] = nil
+    @error = "<div class='alert alert-danger error'>YOU SHALL NOT PASS! (Phill)</div>"
+    return erb :login
   end
 
-  if user = User.authenticate(handle, password)
-    session[:user] = user
-    session[:error] = nil
-    redirect "/feed"
-  else
-    session[:error] = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
-    redirect '/'
-  end
+    if user = User.authenticate(handle, password)
+      session[:user] = user
+      redirect "/feed"
+    else
+      @error = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
+      erb :login
+    end
+
 end
 
 get '/logout' do

@@ -1,17 +1,23 @@
-<h1>My Feed</h1>
+<h1>Feed</h1>
+  <form action="/tweet" method="post">
+
+    <input type="text" name="tweet" placeholder="What's going on <%= session[:user].handle %>?" class="form-control"><br />
+    <input type="submit" name="submit" value="Tweet" class="btn btn-primary">
+
+  </form>
+<div id="tweet-list">
 
 <% @followers.each do |follower| %>
-  <p><%= follower.handle %></p>
-  <p><%= follower.tweets %></p>
  <% follower.tweets.each do |tweet| %>
 <div class="row" id="tweet">
 
 <div class="col-sm-1"><img src="<%=tweet.user.gravatar%>" class="img img-responsive img-circle">
 </div>
     <div class="col-sm-11"><%= tweet.status %><br /><br />
-    @<%=tweet.user.handle %> | <%= tweet.created_at %>
+    <a href="/users/<%=tweet.user.id%>">@<%=tweet.user.handle %></a> | <%= tweet.created_at %>
   </div>
 </div>
 <% end %>
 <% end %>
+</div>
 

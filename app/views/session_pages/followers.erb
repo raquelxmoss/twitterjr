@@ -1,8 +1,10 @@
-<h1>My Followers</h1>
+<div class="col-lg-12">
+  <h1>People I follow <a href="/follow"><button class="btn btn-lg btn-primary">FIND MORE</button></a></h1>
+</div>
 
 <% @followers.each do |follower| %>
-<div class="col-md-3" id="follower-list">
-  <div class="col-lg-12" id="follower">
+<div class="col-md-3" id="user-list">
+  <div class="col-lg-12" id="user">
     <img src="<%= follower.gravatar %>" class="img img-responsive img-circle" />
       <h3><a href="/users/<%= follower.id %>">@<%= follower.handle %></a></h3>
         <p><%= follower.email %></p>
@@ -11,3 +13,4 @@
   </div>
 </div>
 <% end %>
+

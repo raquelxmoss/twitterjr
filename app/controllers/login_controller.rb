@@ -15,7 +15,14 @@ post '/users/new' do
 }
 
   User.create(options)
-  redirect '/users'
+  if user = User.authenticate(options[:handle], options[:password])
+    session[:user] = user
+    session[:error] = nil
+    redirect "/follow"
+  else
+   session[:error] = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
+    redirect "/"
+  end
 end
 
 post '/login' do
@@ -34,7 +41,7 @@ post '/login' do
     session[:error] = nil
     redirect "/feed"
   else
-    session[:error] = "Invalid password, please try again"
+    session[:error] = "<div class='alert alert-danger error' role='alert'>Invalid password, please try again</div>"
     redirect '/'
   end
 

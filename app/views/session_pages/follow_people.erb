@@ -8,9 +8,15 @@
   <h3><a href="/users/<%= user.id %>">@<%= user.handle %></a></h3>
   <p><%= user.email %></p>
   <p>Biography</p>
-  <p id="follow-button"><button class="btn btn-primary btn-lg">Follow</button></p>
+
+  <% if  @followers.include?(user) %>
+    <a href=<%="unfollow/#{user.id}"%>  id="follow-button"><button class="btn btn-primary btn-lg">Unfollow</button></a>
+  <% else %>
+    <a href=<%="follow/#{user.id}"%>  id="follow-button"><button class="btn btn-primary btn-lg">Follow</button></a>
+  <% end %>
+
 </div>
 </div>
 <% end%>
 
-
+</ul>

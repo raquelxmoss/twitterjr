@@ -6,6 +6,10 @@ body {
   padding-top: 50px;
 }
 
+.error {
+  margin-top: 30px;
+}
+
 .navbar-inverse .navbar-brand {
   color: #ccc;
   text-transform: uppercase;
@@ -72,6 +76,10 @@ body {
 
 #logout-button {
   margin-right: 0px;
+}
+
+.add-tweet {
+  width: 80%;
 }
 
 

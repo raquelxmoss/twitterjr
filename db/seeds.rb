@@ -6,7 +6,8 @@ Retweet.delete_all
 
 #Create specific profiles for testing
 require_relative 'seed_my_profile'
-#create ten uers
+
+#create 20 uers
 20.times do
 
   options = {
@@ -25,7 +26,7 @@ require_relative 'seed_followers'
 20.times do
   Tweet.create( status: Faker::Lorem.sentences.join(' '), user: User.all.sample )
 end
-
+require_relative 'seed_retweet_of.rb'
 
 
 puts 'Seed complete !!.'

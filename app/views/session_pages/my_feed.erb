@@ -2,7 +2,7 @@
 
   <form action="/tweet/create" method="post">
 
-    <input type="text" name="status" placeholder="What's going on <%= session[:user].handle %>?" class="form-control"><br />
+    <input type="text" name="status" placeholder="What's going on <%= session[:user].handle %>?" class="form-control" maxlength="140"><br />
     <input type="submit" name="submit" value="Tweet" class="btn btn-primary">
 
   </form>

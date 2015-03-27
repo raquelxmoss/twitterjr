@@ -7,4 +7,6 @@ class Tweet < ActiveRecord::Base
   has_many :retweets, :class_name => "Tweet", :foreign_key => "retweet_of"
   belongs_to :parent_tweet, :class_name => "Tweet", :foreign_key => "retweet_of"
 
+  validates_length_of :status, :maximum=>140
+
 end

@@ -14,7 +14,7 @@
 <div class="col-sm-1"><img src="<%=tweet.user.gravatar%>" class="img img-responsive img-circle">
 </div>
     <div class="col-sm-11"><%= tweet.status %><br /><br />
-    <a href="/users/<%=tweet.user.id%>">@<%=tweet.user.handle %></a> | <%= tweet.created_at %> | <a href="/retweet/create"><button class="btn btn-sm btn-primary">Retweet</button></a>
+    <a href="/users/<%=tweet.user.id%>">@<%=tweet.user.handle %></a> | <%= tweet.created_at %> | <a href=  <%="retweet/#{tweet.id}/create" %>  ><button class="btn btn-sm btn-primary">Retweet</button></a>
   </div>
 </div>
 <% end %>

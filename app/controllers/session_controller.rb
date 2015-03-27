@@ -56,10 +56,10 @@ get '/unfollow/:user_id' do
       user = User.find(session[:user].id)
       user.followers.delete user_to_unfollow
       redirect '/follow'
-    else
+    end
+  else
       session[:error] = "Something went wrong"
       redirect '/follow'
-    end
   end
 end
 
@@ -88,18 +88,34 @@ post '/tweet/create' do
 end
 
 post '/update_profile' do
-unless session[:user].nil?
-options = {
- handle: params[:handle],
- full_name: params[:full_name],
- bio: params[:bio],
- gravatar: params[:gravatar]
-}
-session[:user].update(options)
-redirect '/update_profile'
-else
-  session[:error] = "Something went wrong"
-  redirect '/'
+  unless session[:user].nil?
+    options = {
+     handle: params[:handle],
+     full_name: params[:full_name],
+     bio: params[:bio],
+     gravatar: params[:gravatar]
+    }
+    session[:user].update(options)
+    redirect '/update_profile'
+  else
+    session[:error] = "Something went wrong"
+    redirect '/'
+  end
+end
+
+get '/retweet/:id/create' do
+    if Tweet.find(params[:id])
+      unless session[:user].nil?
+        user = User.find(session[:user].id)
+        tweet_to_retweet = Tweet.find(params[:id])
+
+        user.tweets << Tweet.create(status: tweet_to_retweet.status, retweet_of:tweet_to_retweet.id)
+        redirect '/feed'
+      end
+    else
+        session[:error] = "Something went wrong"
+        redirect '/feed'
+    end
 end
 
 

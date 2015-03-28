@@ -8,25 +8,36 @@
   </form>
 <div id="tweet-list">
 
-<% @followers.each do |follower| %>
- <% follower.tweets.each do |tweet| %>
-<div class="row" id="tweet">
-<% if tweet.retweet_of.nil? %>
-  <div class="col-sm-1"><img src="<%=tweet.user.gravatar%>" class="img img-responsive img-circle hidden-xs">
-  </div>
-      <div class="col-sm-11"><%= tweet.status %><br /><br />
-      <a href="/users/<%=tweet.user.id%>">@<%=tweet.user.handle %></a> | <%= tweet.created_at %> | <a href=  <%="retweet/#{tweet.id}/create" %>  ><button class="btn btn-sm btn-primary">Retweet</button></a>
-    </div>
-  <% else %>
-    <div class="col-sm-1"><img src="<%=tweet.parent_tweet.user.gravatar%>" class="img img-responsive img-circle hidden-xs">
-  </div>
-      <div class="col-sm-11"><%= tweet.status %><br /><br />
-      <a href="/users/<%=tweet.user.id%>">@<%=tweet.parent_tweet.user.handle %></a> | <%= tweet.created_at %> | <a href= <%="retweet/#{tweet.id}/create" %>><button class="btn btn-sm btn-primary">Retweet</button></a> | Retweeted by <%= tweet.user.handle %></a>
-    </div>
-<% end %>
+<% @tweets.each do |tweet| %>
+
+  <div class="row" id="tweet">
+
+    <% if tweet.retweet_of.nil? %>
+
+<div class="col-sm-1"><img src="<%=tweet.user.gravatar%>" class="img img-responsive img-circle hidden-xs">
+</div>
+
+<div class="col-sm-11"><%= tweet.status %><br /><br />
+
+<a href="/users/<%=tweet.user.id%>">@<%=tweet.user.handle %></a> | <%= tweet.created_at %> | <a href=  <%="retweet/#{tweet.id}/create" %>  >
+<button class="btn btn-sm btn-primary">Retweet</button>
+</a>
 
 </div>
+
+      <% else %>
+
+<div class="col-sm-1"><img src="<%=tweet.parent_tweet.user.gravatar%>" class="img img-responsive img-circle hidden-xs">
+</div>
+<div class="col-sm-11"><%= tweet.status %><br /><br />
+<a href="/users/<%=tweet.user.id%>">@<%=tweet.parent_tweet.user.handle %></a> | <%= tweet.created_at %> | <a href= <%="retweet/#{tweet.id}/create" %>><button class="btn btn-sm btn-primary">Retweet</button></a> | Retweeted by <%= tweet.user.handle %></a>
+</div>
+
+      <% end %>
+
+  </div>
+
 <% end %>
-<% end %>
+
 </div>
 

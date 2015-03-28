@@ -4,7 +4,8 @@ get '/feed' do
   unless session[:user].nil?
     id = session[:user].id
     user = User.find(id)
-    @followers = user.followers.includes(:tweets)
+    # @followers = user.followers.includes(:tweets)
+    @tweets = Tweet.joins(:user).where(user: user.followers + [user])
     session[:error] = nil
     erb :'session_pages/my_feed'
   else
